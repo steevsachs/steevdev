@@ -12,6 +12,7 @@
     "build": "NODE_ENV=production webpack --env.production --mode production",
     "dev": "NODE_ENV=development webpack-dev-server -w --hot --env",
     "lint": "tslint --project tsconfig.src.json",
+    "now-build": "yarn build",
     "pretest": "run-p lint typecheck",
     "typecheck": "tsc --project tsconfig.src.json"
   },

@@ -1,37 +1,30 @@
 import { CSSObject } from '@emotion/css'
-import { injectGlobal } from 'emotion'
+import { css, injectGlobal } from 'emotion'
 
-type Font = {
-  fontFamily: string
-  fontWeight: number
-  filename: string
-}
-
-const formats = ['woff2', 'woff']
-
-const fonts: Font[] = [
-  { fontFamily: 'Open Sans', fontWeight: 400, filename: 'open-sans-latin-400' },
-  { fontFamily: 'Open Sans', fontWeight: 600, filename: 'open-sans-latin-600' },
-  { fontFamily: 'Open Sans', fontWeight: 700, filename: 'open-sans-latin-700' },
-  { fontFamily: 'Montserrat', fontWeight: 600, filename: 'montserrat-latin-600' },
-  { fontFamily: 'Montserrat', fontWeight: 700, filename: 'montserrat-latin-700' },
+const globalStyles: CSSObject[] = [
+  {
+    body: {
+      '& #root': {
+        height: 'calc(100vh - 5px)',
+      },
+      backgroundColor: 'rgb(0, 50, 175)',
+      color: '#F8F8F8',
+      fontFamily: '"Press Start 2P", sans-serif',
+      fontSize: 48,
+      fontWeight: 900,
+      margin: 2,
+      padding: 0,
+      textShadow: '2px 0 0 #000, 0 2px 0 #000',
+    },
+  },
 ]
 
-const fontFaceSrc = (filename: string) =>
-  formats
-    .map((format: string): string => `url('/fonts/${filename}.${format}') format('${format}')`)
-    .join(',')
-
-const createFontFace = ({ fontFamily, fontWeight, filename }: Font): CSSObject => ({
-  '@font-face': {
-    fontFamily,
-    fontStyle: 'normal',
-    fontWeight,
-    src: fontFaceSrc(filename),
-    textRendering: 'optimizeLegibility',
-  },
-})
-
-const globalStyles: CSSObject[] = [...fonts.map(createFontFace)]
+const textStyles = {
+  blueText: css({
+    color: 'rgb(0, 200, 255)',
+  }),
+}
 
 injectGlobal(globalStyles)
+
+export { textStyles }

@@ -2,7 +2,16 @@ import React from 'react'
 import { css } from 'emotion'
 
 const styles = {
-  main: css({}),
+  main: css({
+    '& img': {
+      height: '100%',
+      width: '100%',
+    },
+    display: 'flex',
+    flexGrow: 0,
+    height: '90%',
+    maxWidth: '90%',
+  }),
 }
 
 const Portrait: React.FC = () => (

@@ -7,6 +7,8 @@ import MenuContent from './MenuContent'
 import Portrait from './Portrait'
 import React from 'react'
 import Navigation from './Navigation'
+import Bio from '../modules/bio/components/Bio'
+import Links from '../modules/links/components/Links'
 
 const styles = {
   body: {
@@ -43,7 +45,7 @@ const App: React.FC = () => (
       <div className={styles.section}>
         <MenuContainer className={styles.header}>
           <Portrait />
-          <MenuContent>
+          <MenuContent className={css({ display: 'flex', flexGrow: 1 })}>
             <div>STEEV SACHS</div>
             <div>Software Engineer</div>
             <div>
@@ -63,26 +65,8 @@ const App: React.FC = () => (
             match: { params: { navItem: NavItems } }
           }) => <Navigation selected={navItem} />}
         />
-        <Route
-          path={`/${NavItems.Bio}`}
-          render={() => (
-            <MenuContainer className={styles.main}>
-              <div>
-                Full stack engineer seeking opportunities to contribute to the development of
-                efficient, innovative, high-quality software and processes as part of a team of
-                passionate professionals who love their jobs and their products
-              </div>
-            </MenuContainer>
-          )}
-        />
-        <Route
-          path={`/${NavItems.Social}`}
-          render={() => (
-            <MenuContainer className={styles.main}>
-              <a href="https://github.com/steevsachs">Github</a>
-            </MenuContainer>
-          )}
-        />
+        <Route path={`/${NavItems.Bio}`} component={Bio} />
+        <Route path={`/${NavItems.Social}`} component={Links} />
         <Route
           path={`/${NavItems.Skills}`}
           render={() => (

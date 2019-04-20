@@ -34,6 +34,13 @@ const createFontFace = ({ fontFamily, fontWeight, filename }: Font): CSSObject =
 const globalStyles: CSSObject[] = [
   ...fonts.map(createFontFace),
   {
+    a: {
+      '&:visited': {
+        color: 'inherit',
+      },
+      color: 'inherit',
+      textDecoration: 'none',
+    },
     body: {
       '& #root': {
         height: 'calc(100vh - 5px)',

@@ -11,7 +11,7 @@ const include = [resolve(rootDir, 'src'), resolve(rootDir, 'config')]
 
 module.exports = (env = {}) => ({
   devServer: {
-    allowedHosts: ['localhost', '.steev.dev'],
+    allowedHosts: ['localhost', '.steev.dev', 'bs-local.com'],
     historyApiFallback: true,
     host: 'localhost',
     https: true,

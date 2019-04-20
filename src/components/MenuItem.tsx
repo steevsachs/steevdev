@@ -1,21 +1,31 @@
+import { Link } from 'react-router-dom'
+import { NavItems } from '../types'
 import { css } from 'emotion'
-import React from 'react'
-import Pointer from './Pointer'
 import { textStyles } from '../styles'
+import Pointer from './Pointer'
+import React from 'react'
 
 type MenuItemProps = {
   className?: string
+  navItem: NavItems
   selected?: boolean
 }
 
 const styles = {
   container: (selected: boolean) =>
     css({
-      '& :hover':
+      '& :hover, & > a:visited:hover':
         !selected &&
         css(textStyles.blueText, {
           transition: 'color .5s ease',
         }),
+      '& > a': {
+        '&:visited': {
+          color: 'inherit',
+        },
+        color: 'inherit',
+        textDecoration: 'none',
+      },
       cursor: !selected ? 'pointer' : 'default',
       display: 'flex',
       transition: 'color .5s ease',
@@ -25,10 +35,10 @@ const styles = {
   }),
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ children, className, selected = false }) => (
+const MenuItem: React.FC<MenuItemProps> = ({ children, className, navItem, selected = false }) => (
   <div className={css(styles.container(selected), className)}>
     <Pointer className={!selected ? styles.hidden : ''} />
-    <div>{children}</div>
+    <Link to={`/${navItem}`}>{children}</Link>
   </div>
 )
 

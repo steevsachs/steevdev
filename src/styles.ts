@@ -38,10 +38,10 @@ const globalStyles: CSSObject[] = [
       '& #root': {
         height: 'calc(100vh - 5px)',
       },
-      backgroundColor: 'rgb(0, 50, 175)',
+      backgroundImage: 'linear-gradient(to top right, rgb(0, 50, 175), rgb(0, 200, 255))',
       color: '#F8F8F8',
       fontFamily: '"Final Fantasy 3/6 Font", sans-serif',
-      fontSize: '4em',
+      fontSize: '4vw',
       fontWeight: 900,
       letterSpacing: 2,
       margin: 2,

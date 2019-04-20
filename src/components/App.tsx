@@ -1,18 +1,12 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom'
+import { NavItems } from '../types'
 import { css } from 'emotion'
 import { textStyles } from '../styles'
 import MenuContainer from './MenuContainer'
 import MenuContent from './MenuContent'
-import MenuItem from './MenuItem'
 import Portrait from './Portrait'
 import React from 'react'
-
-enum Sections {
-  Bio = 'bio',
-  Hire = 'hire',
-  Skills = 'skills',
-  Social = 'social',
-}
+import Navigation from './Navigation'
 
 const styles = {
   body: {
@@ -23,12 +17,17 @@ const styles = {
     flexDirection: 'column',
     height: '100%',
   }),
+  header: css({
+    alignItems: 'center',
+    padding: 0,
+  }),
   main: css({
-    flexGrow: 0.85,
+    flexGrow: 1,
   }),
   menu: css({
     flexDirection: 'column',
     flexGrow: 0.15,
+    maxWidth: '15%',
     minWidth: '15%',
   }),
   section: css({
@@ -39,9 +38,10 @@ const styles = {
 
 const App: React.FC = () => (
   <Router>
+    <Route exact path="/" render={() => <Redirect to="/bio" />} />
     <div className={styles.container}>
       <div className={styles.section}>
-        <MenuContainer>
+        <MenuContainer className={styles.header}>
           <Portrait />
           <MenuContent>
             <div>STEEV SACHS</div>
@@ -53,21 +53,48 @@ const App: React.FC = () => (
         </MenuContainer>
       </div>
       <div className={css(styles.section, styles.body)}>
-        <MenuContainer className={styles.menu}>
-          <MenuItem selected>Bio</MenuItem>
-          <MenuItem>Skills</MenuItem>
-          <MenuItem>Links</MenuItem>
-          <MenuItem>Hire</MenuItem>
-        </MenuContainer>
-        <MenuContainer className={styles.main}>
-          <div>
-            Full stack engineer seeking opportunities to contribute to the development of efficient,
-            innovative, high-quality software and processes as part of a team of passionate
-            professionals who love their jobs and their products
-          </div>
-        </MenuContainer>
+        <Route
+          path={'/:navItem?'}
+          component={({
+            match: {
+              params: { navItem = NavItems.Bio },
+            },
+          }: {
+            match: { params: { navItem: NavItems } }
+          }) => <Navigation selected={navItem} />}
+        />
+        <Route
+          path={`/${NavItems.Bio}`}
+          render={() => (
+            <MenuContainer className={styles.main}>
+              <div>
+                Full stack engineer seeking opportunities to contribute to the development of
+                efficient, innovative, high-quality software and processes as part of a team of
+                passionate professionals who love their jobs and their products
+              </div>
+            </MenuContainer>
+          )}
+        />
+        <Route
+          path={`/${NavItems.Social}`}
+          render={() => (
+            <MenuContainer className={styles.main}>
+              <a href="https://github.com/steevsachs">Github</a>
+            </MenuContainer>
+          )}
+        />
+        <Route
+          path={`/${NavItems.Skills}`}
+          render={() => (
+            <MenuContainer className={styles.main}>
+              <div />
+            </MenuContainer>
+          )}
+        />
       </div>
     </div>
   </Router>
 )
+
+export { styles }
 export default App

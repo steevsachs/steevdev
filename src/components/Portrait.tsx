@@ -2,9 +2,7 @@ import React from 'react'
 import { css } from 'emotion'
 
 const styles = {
-  main: css({
-    flexShrink: 0,
-  }),
+  main: css({}),
 }
 
 const Portrait: React.FC = () => (

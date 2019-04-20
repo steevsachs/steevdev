@@ -4,12 +4,31 @@ import MenuContainer from './MenuContainer'
 import MenuContent from './MenuContent'
 import Portrait from './Portrait'
 import React from 'react'
+import MenuItem from './MenuItem'
+
+enum Sections {
+  Bio = 'bio',
+  Hire = 'hire',
+  Skills = 'skills',
+  Social = 'social',
+}
 
 const styles = {
+  body: {
+    height: '100%',
+  },
   container: css({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
+  }),
+  main: css({
+    flexGrow: 0.85,
+  }),
+  menu: css({
+    flexDirection: 'column',
+    flexGrow: 0.15,
+    minWidth: '15%',
   }),
   section: css({
     display: 'flex',
@@ -31,12 +50,19 @@ const App: React.FC = () => (
         </MenuContent>
       </MenuContainer>
     </div>
-    <div className={styles.section}>
-      <MenuContainer>
-        <div>A wild app appeared!</div>
+    <div className={css(styles.section, styles.body)}>
+      <MenuContainer className={styles.menu}>
+        <MenuItem selected>Bio</MenuItem>
+        <MenuItem>Skills</MenuItem>
+        <MenuItem>Links</MenuItem>
+        <MenuItem>Hire</MenuItem>
       </MenuContainer>
-      <MenuContainer>
-        <div>A wild app appeared!</div>
+      <MenuContainer className={styles.main}>
+        <div>
+          Full stack engineer seeking opportunities to contribute to the development of efficient,
+          innovative, high-quality software and processes as part of a team of passionate
+          professionals who love their jobs and their products
+        </div>
       </MenuContainer>
     </div>
   </div>

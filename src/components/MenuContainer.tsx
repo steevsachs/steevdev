@@ -1,7 +1,9 @@
 import { css } from 'emotion'
 import React from 'react'
 
-type MenuContainerProps = {}
+type MenuContainerProps = {
+  className?: string
+}
 
 const styles = {
   container: css({
@@ -15,8 +17,8 @@ const styles = {
   }),
 }
 
-const MenuContainer: React.FC<MenuContainerProps> = ({ children }) => (
-  <div className={styles.container}>{children}</div>
+const MenuContainer: React.FC<MenuContainerProps> = ({ children, className }) => (
+  <div className={css(styles.container, className)}>{children}</div>
 )
 
 export default MenuContainer

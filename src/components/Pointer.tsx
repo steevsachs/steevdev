@@ -8,7 +8,7 @@ type PointerProps = {
 const styles = {
   container: css({
     marginRight: '.2em',
-    marginTop: 6,
+    marginTop: '3%',
   }),
   image: css({
     height: '.65em',

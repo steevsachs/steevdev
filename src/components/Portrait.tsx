@@ -4,13 +4,13 @@ import { css } from 'emotion'
 const styles = {
   main: css({
     '& img': {
-      height: '100%',
-      width: '100%',
+      height: 'auto',
+      width: 'auto',
     },
     display: 'flex',
     flexGrow: 0,
-    height: '90%',
-    maxWidth: '90%',
+    maxHeight: '90%',
+    width: 'auto',
   }),
 }
 

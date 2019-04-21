@@ -31,6 +31,15 @@ const createFontFace = ({ fontFamily, fontWeight, filename }: Font): CSSObject =
   },
 })
 
+const textStyles = {
+  blueText: css({
+    color: 'rgb(0, 200, 255)',
+  }),
+  whiteText: css({
+    color: '#f8f8f8',
+  }),
+}
+
 const globalStyles: CSSObject[] = [
   ...fonts.map(createFontFace),
   {
@@ -41,12 +50,17 @@ const globalStyles: CSSObject[] = [
       color: 'inherit',
       textDecoration: 'none',
     },
-    body: {
+    body: css(textStyles.whiteText, {
       '& #root': {
         height: 'calc(100vh - 5px)',
       },
+      '& a': {
+        '&:hover': css(textStyles.blueText, {
+          transition: 'color .5s ease',
+        }),
+        transition: 'color .5s ease',
+      },
       backgroundImage: 'linear-gradient(to top right, rgb(0, 50, 175), rgb(0, 200, 255))',
-      color: '#F8F8F8',
       fontFamily: '"Final Fantasy 3/6 Font", sans-serif',
       fontSize: '4vw',
       fontWeight: 900,
@@ -54,15 +68,9 @@ const globalStyles: CSSObject[] = [
       margin: 2,
       padding: 0,
       textShadow: '2px 0 0 #000, 0 2px 0 #000',
-    },
+    }),
   },
 ]
-
-const textStyles = {
-  blueText: css({
-    color: 'rgb(0, 200, 255)',
-  }),
-}
 
 injectGlobal(globalStyles)
 

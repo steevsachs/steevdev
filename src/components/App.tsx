@@ -9,6 +9,7 @@ import React from 'react'
 import Navigation from './Navigation'
 import Bio from '../modules/bio/components/Bio'
 import Links from '../modules/links/components/Links'
+import Skills from '../modules/skills/components/Skills'
 
 const styles = {
   body: {
@@ -67,14 +68,7 @@ const App: React.FC = () => (
         />
         <Route path={`/${NavItems.Bio}`} component={Bio} />
         <Route path={`/${NavItems.Social}`} component={Links} />
-        <Route
-          path={`/${NavItems.Skills}`}
-          render={() => (
-            <MenuContainer className={styles.main}>
-              <div />
-            </MenuContainer>
-          )}
-        />
+        <Route path={`/${NavItems.Skills}`} component={Skills} />
       </div>
     </div>
   </Router>

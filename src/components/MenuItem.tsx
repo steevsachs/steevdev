@@ -14,18 +14,7 @@ type MenuItemProps = {
 const styles = {
   container: (selected: boolean) =>
     css({
-      '& :hover, & > a:visited:hover':
-        !selected &&
-        css(textStyles.blueText, {
-          transition: 'color .5s ease',
-        }),
-      '& > a': {
-        '&:visited': {
-          color: 'inherit',
-        },
-        color: 'inherit',
-        textDecoration: 'none',
-      },
+      '& :hover, & > a:visited:hover': selected && css(textStyles.whiteText, { cursor: 'default' }),
       cursor: !selected ? 'pointer' : 'default',
       display: 'flex',
       transition: 'color .5s ease',

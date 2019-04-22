@@ -12,7 +12,7 @@ const styles = {
     display: 'flex',
     flexGrow: 1,
     margin: 8,
-    padding: 16,
+    padding: '2% 4%',
   }),
 }
 

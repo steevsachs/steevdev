@@ -38,7 +38,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ children, className, navItem, selec
     )
 
   return (
-    <div className={css(styles.container(selected), className)}>
+    <div
+      className={css(styles.container(selected), className)}
+      data-testid={`pointer-${navItem}-${selected}`}
+    >
       <Pointer className={!selected ? styles.hidden : ''} />
       {link}
     </div>

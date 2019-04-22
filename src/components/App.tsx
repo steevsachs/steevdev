@@ -21,10 +21,10 @@ const styles = {
     flexDirection: 'column',
     height: '100%',
     minHeight: '100vh',
-    maxWidth: '100vw',
   }),
   header: css({
     alignItems: 'center',
+    maxWidth: 'calc(100vw - 20px)',
     padding: 0,
   }),
   main: css({

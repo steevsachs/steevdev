@@ -52,7 +52,8 @@ const globalStyles: CSSObject[] = [
     },
     body: css(textStyles.whiteText, {
       '& #root': {
-        height: 'calc(100vh - 5px)',
+        height: 'calc(100% - 5px)',
+        minHeight: 'calc(100vh - 5px)',
       },
       '& a': {
         '&:hover': css(textStyles.blueText, {
@@ -62,7 +63,7 @@ const globalStyles: CSSObject[] = [
       },
       backgroundImage: 'linear-gradient(to top right, rgb(0, 50, 175), rgb(0, 200, 255))',
       fontFamily: '"Final Fantasy 3/6 Font", sans-serif',
-      fontSize: '4vw',
+      fontSize: 'calc(1em + 3.5vw)',
       fontWeight: 900,
       letterSpacing: 2,
       margin: 2,

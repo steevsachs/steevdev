@@ -13,12 +13,14 @@ import Skills from '../modules/skills/components/Skills'
 
 const styles = {
   body: {
+    flexGrow: 1,
     height: '100%',
   },
   container: css({
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
+    minHeight: '100vh',
   }),
   header: css({
     alignItems: 'center',

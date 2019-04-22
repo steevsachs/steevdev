@@ -24,11 +24,25 @@ const styles = {
   }),
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ children, className, navItem, selected = false }) => (
-  <div className={css(styles.container(selected), className)}>
-    <Pointer className={!selected ? styles.hidden : ''} />
-    <Link to={`/${navItem}`}>{children}</Link>
-  </div>
-)
+const handleHireOnClick = () => {
+  window.location.href =
+    "mailto:steevsach.s@gmail.com?subject=Come work for me!&body=I'm prepared to make you an offer you can't refuse"
+}
+
+const MenuItem: React.FC<MenuItemProps> = ({ children, className, navItem, selected = false }) => {
+  const link =
+    navItem === NavItems.Hire ? (
+      <div onClick={handleHireOnClick}>{children}</div>
+    ) : (
+      <Link to={`/${navItem}`}>{children}</Link>
+    )
+
+  return (
+    <div className={css(styles.container(selected), className)}>
+      <Pointer className={!selected ? styles.hidden : ''} />
+      {link}
+    </div>
+  )
+}
 
 export default MenuItem

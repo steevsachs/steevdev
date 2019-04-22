@@ -25,8 +25,9 @@ const styles = {
 }
 
 const handleHireOnClick = () => {
-  window.location.href =
+  window.location.assign(
     "mailto:steevsach.s@gmail.com?subject=Come work for me!&body=I'm prepared to make you an offer you can't refuse"
+  )
 }
 
 const MenuItem: React.FC<MenuItemProps> = ({ children, className, navItem, selected = false }) => {

@@ -3,21 +3,9 @@ import React from 'react'
 import App from '../App'
 import renderWithRouter from '../../../test-utils/renderWithRouter'
 
-const RealLocation = window ? window.location : {}
-
-afterEach(() => {
-  if (window) {
-    window.location = RealLocation
-  }
-})
-
 describe('<App />', () => {
   it('renders', () => {
-    /*Object.defineProperty(window, 'href', {
-      value: jest.fn(),
-      writable: true,
-    })*/
-
+    const assignSpy = jest.spyOn(window.location, 'assign')
     const { getByTestId, getByText, queryByTestId, queryByText } = renderWithRouter(<App />, {
       route: '/bio',
     })
@@ -35,9 +23,9 @@ describe('<App />', () => {
     expect(getByText('Javascript')).toBeInTheDocument()
 
     // TODO
-    /*fireEvent.click(getByText('Hire'))
-    expect(window.location.href).toEqual(
+    fireEvent.click(getByText('Hire'))
+    expect(assignSpy).toHaveBeenCalledWith(
       "mailto:steevsach.s@gmail.com?subject=Come work for me!&body=I'm prepared to make you an offer you can't refuse"
-    )*/
+    )
   })
 })

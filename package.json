@@ -11,10 +11,12 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --env.production --mode production",
     "dev": "NODE_ENV=development webpack-dev-server -w --hot --env",
-    "lint": "tslint --project tsconfig.src.json",
+    "lint": "tslint --project tsconfig.json",
     "now-build": "yarn build",
     "pretest": "run-p lint typecheck",
-    "typecheck": "tsc --project tsconfig.src.json"
+    "prettier": "prettier --write \"{src,test-utils}/**/*.{ts,tsx}\" \"{tsconfig,tslint}.json\"",
+    "test": "NODE_ENV=test jest",
+    "typecheck": "tsc --project tsconfig.json"
   },
   "devDependencies": {
     "@babel/preset-typescript": "7.3.3",
@@ -36,11 +38,13 @@
     "copy-webpack-plugin": "5.0.2",
     "danger": "7.1.2",
     "html-webpack-plugin": "4.0.0-beta.5",
+    "jest": "24.7.1",
     "jest-dom": "3.1.3",
     "jest-emotion": "10.0.10",
     "jest-environment-jsdom-global": "1.2.0",
     "jest-fetch-mock": "2.1.2",
     "mutation-observer": "1.0.3",
+    "npm-run-all": "4.1.5",
     "prettier": "1.17.0",
     "react-dev-utils": "8.0.0",
     "react-test-renderer": "16.8.6",

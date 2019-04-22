@@ -21,6 +21,7 @@ const styles = {
     flexDirection: 'column',
     height: '100%',
     minHeight: '100vh',
+    maxWidth: '100vw',
   }),
   header: css({
     alignItems: 'center',

@@ -10,8 +10,8 @@ const styles = {
     width: '100%',
   }),
   item: css({
-    width: '33%'
-  })
+    width: '33%',
+  }),
 }
 
 const Skills: React.FC = () => (

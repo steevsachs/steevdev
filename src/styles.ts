@@ -63,7 +63,7 @@ const globalStyles: CSSObject[] = [
       },
       backgroundImage: 'linear-gradient(to top right, rgb(0, 50, 175), rgb(0, 200, 255))',
       fontFamily: '"Final Fantasy 3/6 Font", sans-serif',
-      fontSize: 'calc(1em + 3.5vw)',
+      fontSize: '4vw',
       fontWeight: 900,
       letterSpacing: 2,
       margin: 2,

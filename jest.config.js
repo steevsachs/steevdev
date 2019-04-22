@@ -10,7 +10,7 @@ module.exports = {
   snapshotSerializers: ['<rootDir>/node_modules/snapshot-diff/serializer.js'],
   testEnvironment: 'jsdom-global',
   testPathIgnorePatterns: ['/utils/'],
-  testRegex: 'platform/.*(/__tests__/[^.]+.(?!integration)|\\.(test|spec))\\.tsx?$',
+  testRegex: 'src/.*(/__tests__/[^.]+.(?!integration)|\\.(test|spec))\\.tsx?$',
   transform: {
     '\\.tsx?$': 'babel-jest',
   },

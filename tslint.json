@@ -1,10 +1,5 @@
 {
-  "extends": [
-    "tslint:latest",
-    "tslint-react",
-    "tslint-plugin-prettier",
-    "tslint-config-prettier"
-  ],
+  "extends": ["tslint:latest", "tslint-react", "tslint-plugin-prettier", "tslint-config-prettier"],
   "rules": {
     "interface-name": [false],
     "interface-over-type-literal": false,
@@ -12,11 +7,9 @@
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
     "jsx-space-before-trailing-slash": true,
-    "juri-sort-imports": true,
     "max-classes-per-file": false,
     "member-access": false,
     "no-console": ["log"],
-    "no-floating-promises": true,
     "no-implicit-dependencies": false,
     "no-object-literal-type-assertion": false,
     "no-submodule-imports": false,

@@ -33,7 +33,7 @@ const handleHireOnClick = () => {
 const MenuItem: React.FC<MenuItemProps> = ({ children, className, navItem, selected = false }) => {
   const link =
     navItem === NavItems.Hire ? (
-      <div onClick={handleHireOnClick}>{children}</div>
+      <a onClick={handleHireOnClick}>{children}</a>
     ) : (
       <Link to={`/${navItem}`}>{children}</Link>
     )
